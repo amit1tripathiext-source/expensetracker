@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 164 63% 7%;
+    --foreground: 170 33% 96%;
+    --card: 166 42% 12%;
+    --card-foreground: 170 33% 96%;
+    --primary: 166 84% 53%;
+    --primary-foreground: 168 92% 5%;
+    --secondary: 205 72% 16%;
+    --secondary-foreground: 170 33% 96%;
+    --muted: 171 33% 16%;
+    --muted-foreground: 170 14% 68%;
+    --accent: 151 73% 49%;
+    --accent-foreground: 168 92% 5%;
+    --destructive: 0 75% 58%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 100%;
+    --input: 0 0% 100%;
+    --ring: 166 84% 53%;
+    --radius: 1rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply min-h-screen bg-background font-sans text-foreground antialiased;
+    background:
+      radial-gradient(circle at 18% -8%, rgba(45, 212, 191, 0.32), transparent 36rem),
+      radial-gradient(circle at 90% 8%, rgba(34, 197, 94, 0.22), transparent 30rem),
+      linear-gradient(135deg, #04251f 0%, #064232 37%, #06172f 100%);
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.45), transparent 72%);
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply rounded-2xl border border-white/10 bg-white/5 shadow-glow backdrop-blur;
+  }
+
+  .glass-input {
+    @apply rounded-full border-white/10 bg-white/10 text-white placeholder:text-white/40 focus-visible:ring-emerald-300/50;
+  }
+
+  .page-shell {
+    @apply mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8;
+  }
+}
